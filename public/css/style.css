@@ -1,0 +1,180 @@
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Segoe UI', Arial, sans-serif;
+  line-height: 1.6;
+  background: #f5f6fa;
+  color: #222;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #222;
+  color: #fff;
+}
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.navbar nav a {
+  color: #fff;
+  margin-left: 1rem;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+.navbar nav a:hover {
+  color: #ff6a00;
+}
+
+/* ===== Containers ===== */
+.container, .dashboard {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+}
+h1, h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+/* ===== Buttons ===== */
+.btn-primary {
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.btn-primary:hover {
+  opacity: 0.9;
+}
+a.btn-primary {
+  display: inline-block;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* ===== Forms (Admin Dashboard) ===== */
+.form-card {
+  display: grid;
+  gap: 1rem;
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  margin-bottom: 2rem;
+}
+.form-card input {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+}
+
+/* ===== Offer Grid (For both User & Admin) ===== */
+.offer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+.offer-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+}
+.offer-card:hover {
+  transform: translateY(-5px);
+}
+.offer-card img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+}
+.offer-card h3 {
+  padding: 0.8rem 1rem 0;
+  font-size: 1.2rem;
+  color: #111;
+}
+.offer-card p {
+  padding: 0.2rem 1rem;
+  color: #555;
+}
+.offer-card a {
+  display: block;
+  text-align: center;
+  padding: 0.8rem;
+  background: linear-gradient(135deg, #ff6a00, #ee0979);
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+}
+.offer-card a:hover {
+  opacity: 0.9;
+}
+
+/* ===== Admin Card Actions (Edit/Delete) ===== */
+.card-actions {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.8rem;
+  border-top: 1px solid #eee;
+}
+.card-actions button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.btn-edit {
+  background: #3498db;
+  color: #fff;
+}
+.btn-edit:hover {
+  opacity: 0.8;
+}
+.btn-delete {
+  background: #e74c3c;
+  color: #fff;
+}
+.btn-delete:hover {
+  opacity: 0.8;
+}
+
+/* ===== Footer ===== */
+footer {
+  margin-top: 2rem;
+  background: #222;
+  color: #fff;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+}
+
+/* ===== Responsive Fixes ===== */
+@media(max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    text-align: center;
+  }
+  .navbar nav {
+    margin-top: 0.5rem;
+  }
+}

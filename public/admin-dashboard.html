@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard – OfferFind</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="navbar">
+    <div class="logo">⚡ OfferFind Admin</div>
+    <nav>
+      <a href="index.html">View Site</a>
+      <a href="admin-login.html">Logout</a>
+    </nav>
+  </header>
+
+  <!-- Dashboard Container -->
+  <main class="dashboard">
+    <!-- Add Offer Card -->
+    <section class="add-offer">
+      <h2>Add New Offer</h2>
+      <form id="offerForm" class="form-card">
+        <input type="text" id="title" placeholder="Offer Title" required>
+        <input type="text" id="price" placeholder="Price / Discount" required>
+        <input type="url" id="link" placeholder="Offer Link" required>
+        <input type="url" id="image" placeholder="Image URL" required>
+        <button type="submit" class="btn-primary">+ Add Offer</button>
+      </form>
+    </section>
+
+    <!-- Offers Preview -->
+    <section class="all-offers">
+      <h2>📋 All Offers</h2>
+      <div id="adminOffers" class="offer-grid"></div>
+    </section>
+  </main>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
