@@ -1,10 +1,9 @@
-// server.js
-
 const express = require('express');
 const path = require('path');
 const session = require('express-session');
 const cors = require('cors');
 const dotenv = require('dotenv');
+const MongoStore = require('connect-mongo');
 
 dotenv.config();
 
@@ -23,31 +22,31 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Session setup (use MongoStore for production)
+// Session setup (production safe using MongoDB)
 app.use(
   session({
     secret: process.env.SESSION_SECRET || 'secret',
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_URI }),
     cookie: { maxAge: 24 * 60 * 60 * 1000 }, // 1 day
   })
 );
 
-// Serve uploads folder
-app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+// Serve public folder (CSS, JS, images, admin pages)
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve all frontend files from root folder (index.html, css/, js/, images/)
-app.use(express.static(__dirname));
+// Serve uploads folder if you have file uploads
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // API and Admin routes
 app.use('/api', apiRoutes);
 app.use('/admin', adminRoutes);
 
-// Fallback route: send index.html for all other routes (SPA support)
+// SPA fallback: serve index.html for all other routes
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
-
 
 // Start server
 const PORT = process.env.PORT || 3000;
