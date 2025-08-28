@@ -17,16 +17,16 @@
   </header>
 
   <!-- Dashboard Container -->
-  <main class="dashboard">
+  <main class="dashboard container">
     <!-- Add Offer Card -->
     <section class="add-offer">
-      <h2>Add New Offer</h2>
+      <h2>Add / Update Offer</h2>
       <form id="offerForm" class="form-card">
         <input type="text" id="title" placeholder="Offer Title" required>
         <input type="text" id="price" placeholder="Price / Discount" required>
         <input type="url" id="link" placeholder="Offer Link" required>
-        <input type="url" id="image" placeholder="Image URL" required>
-        <button type="submit" class="btn-primary">+ Add Offer</button>
+        <input type="url" id="image" placeholder="Image URL">
+        <button type="submit" class="btn-primary">+ Add / Update Offer</button>
       </form>
     </section>
 
@@ -36,6 +36,10 @@
       <div id="adminOffers" class="offer-grid"></div>
     </section>
   </main>
+
+  <footer>
+    <p>© 2025 OfferFind | All Rights Reserved</p>
+  </footer>
 
   <script src="js/script.js"></script>
 </body>

@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const userOffers = document.getElementById("offers");
 
   let offers = JSON.parse(localStorage.getItem("offers")) || [];
-  let editingIndex = null; // track if editing an offer
+  let editingIndex = null;
 
   function saveOffers() {
     localStorage.setItem("offers", JSON.stringify(offers));
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!container) return;
     container.innerHTML = offers.map((o, index) => `
       <div class="offer-card">
-        <img src="${o.image}" alt="${o.title}">
+        ${o.image ? `<img src="${o.image}" alt="${o.title}">` : ""}
         <h3>${o.title}</h3>
         <p>${o.price}</p>
         <a href="${o.link}" target="_blank">Grab Deal</a>
@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
           offers.splice(i, 1);
           saveOffers();
           renderOffers(adminOffers, true);
+          renderOffers(userOffers);
         });
       });
 
@@ -43,18 +44,16 @@ document.addEventListener("DOMContentLoaded", () => {
           document.getElementById("title").value = offer.title;
           document.getElementById("price").value = offer.price;
           document.getElementById("link").value = offer.link;
-          document.getElementById("image").value = offer.image;
-          editingIndex = i; // mark as editing
+          document.getElementById("image").value = offer.image || "";
+          editingIndex = i;
         });
       });
     }
   }
 
-  // Initial render
   renderOffers(adminOffers, true);
   renderOffers(userOffers);
 
-  // Add / Update Offer
   if (offerForm) {
     offerForm.addEventListener("submit", e => {
       e.preventDefault();
